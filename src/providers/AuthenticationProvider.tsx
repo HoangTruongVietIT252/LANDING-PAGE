@@ -1,7 +1,7 @@
-'use client';
-import type { Auth } from '@/interfaces/auth.interface';
-import React, { use, useCallback, useMemo, useState } from 'react';
-import authService from '@/services/authService';
+"use client";
+import type { Auth } from "@/interfaces/auth.interface";
+import React, { useCallback, useMemo, useState, useContext } from "react";
+import authService from "@/services/modules/auth";
 
 type LoginFunction = {
   username: string;
@@ -15,12 +15,12 @@ const AuthenticationContext = React.createContext<{
   login: ({ password, username }: LoginFunction) => void;
   logout: () => void;
 }>({
-      auth: undefined,
-      login: () => {},
-      logout: () => {},
-    });
+  auth: undefined,
+  login: () => {},
+  logout: () => {},
+});
 
-export const useAuth = () => use(AuthenticationContext);
+export const useAuth = () => useContext(AuthenticationContext);
 
 type AuthenticationProviderProps = {
   children: React.ReactNode;
@@ -28,34 +28,28 @@ type AuthenticationProviderProps = {
 
 function AuthenticationProvider({ children }: AuthenticationProviderProps) {
   // ! State
-  const [auth, setAuth] = useState<Auth | undefined>(
-    authService.getAuthStorage(),
-  );
+  const [auth, setAuth] = useState<Auth | undefined>(authService.getAuthStorage());
 
   // ! Function
-  const login = useCallback(
-    async ({ password, username, onFailed, onSuccess }: LoginFunction) => {
-      try {
-        if (username === 'donezombie' && password === 'donezombie') {
-          const user = {
-            token:
-              'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkb25AdGV4dGJhY2suYWkiLCJpc3MiOiJ0ZXh0YmFjay5haSIsImlhdCI6MTY5Nzc3ODE5OSwiZXhwIjoxNjk3ODY0NTk5fQ.UDiQJ1X2O8kTbXo1dMoFlNDUhJVKFfdNoLy1sYRvQz4',
-            name: 'donezombie',
-          };
-  
-          setAuth(user);
-          authService.saveAuthToStorage(user);
-          onSuccess && onSuccess();
-        } else {
-          onFailed && onFailed('Incorrect username / password');
-        }
-        
-      } catch (error) {
-        onFailed && onFailed(error);
+  const login = useCallback(async ({ password, username, onFailed, onSuccess }: LoginFunction) => {
+    try {
+      if (username === "donezombie" && password === "donezombie") {
+        const user = {
+          token:
+            "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkb25AdGV4dGJhY2suYWkiLCJpc3MiOiJ0ZXh0YmFjay5haSIsImlhdCI6MTY5Nzc3ODE5OSwiZXhwIjoxNjk3ODY0NTk5fQ.UDiQJ1X2O8kTbXo1dMoFlNDUhJVKFfdNoLy1sYRvQz4",
+          name: "donezombie",
+        };
+
+        setAuth(user);
+        authService.saveAuthToStorage(user);
+        onSuccess && onSuccess();
+      } else {
+        onFailed && onFailed("Incorrect username / password");
       }
-    },
-    [],
-  );
+    } catch (error) {
+      onFailed && onFailed(error);
+    }
+  }, []);
 
   const logout = useCallback(() => {
     authService.clearAuthStorage();
@@ -68,14 +62,10 @@ function AuthenticationProvider({ children }: AuthenticationProviderProps) {
       logout,
       login,
     }),
-    [auth, login, logout],
+    [auth, login, logout]
   );
 
-  return (
-    <AuthenticationContext.Provider value={values}>
-      {children}
-    </AuthenticationContext.Provider>
-  );
+  return <AuthenticationContext.Provider value={values}>{children}</AuthenticationContext.Provider>;
 }
 
 export default AuthenticationProvider;

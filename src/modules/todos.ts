@@ -1,5 +1,5 @@
 import queriesKeys from "@/constants/queriesKeys";
-import todoService, { RequestGetTodos } from "@/services/todoService";
+import todoService, { RequestGetTodos } from "@/services/modules/todo";
 import { showError } from "@/utils/toast";
 import { useMutation, useQuery } from "@tanstack/react-query";
 

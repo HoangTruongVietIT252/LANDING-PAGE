@@ -7,7 +7,8 @@ import { ToastContainer } from "react-toastify";
 import { ReactQueryProvider } from "@/providers/ReactQueryProvider";
 
 import "@/styles/globals.css";
-import SidebarProvider from "@/providers/SidebarProvider";
+import { SidebarProvider } from "@/providers/SidebarProvider";
+import AuthenticationProvider from "@/providers/AuthenticationProvider";
 
 export const metadata: Metadata = {
   icons: [
@@ -60,12 +61,14 @@ export default async function RootLayout(props: {
     <html lang={locale}>
       <body suppressHydrationWarning={true}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <ReactQueryProvider>
-            <SidebarProvider>
-              <ToastContainer />
-              {props.children}
-            </SidebarProvider>
-          </ReactQueryProvider>
+          <AuthenticationProvider>
+            <ReactQueryProvider>
+              <SidebarProvider>
+                <ToastContainer />
+                {props.children}
+              </SidebarProvider>
+            </ReactQueryProvider>
+          </AuthenticationProvider>
         </NextIntlClientProvider>
       </body>
     </html>

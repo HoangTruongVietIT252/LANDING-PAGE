@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from "axios";
-import httpService from "./httpService";
+import httpService from "../../httpService";
 import { PromiseResponseBase } from "@/interfaces/common.interface";
 import { Todo } from "@/interfaces/todo.interface";
 

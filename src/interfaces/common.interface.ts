@@ -23,17 +23,14 @@ export interface ResponseGenerator<T = any> {
   statusText?: string;
 }
 
-export type TypeAlign =
-  | "left"
-  | "right"
-  | "inherit"
-  | "center"
-  | "justify"
-  | undefined;
+export type TypeAlign = "left" | "right" | "inherit" | "center" | "justify" | undefined;
 
 export interface SelectOption {
   label: string | React.ReactNode;
   value: any;
+}
+export enum TypeOfFilterHeader {
+  dialog = "dialog",
 }
 
 export interface ResponseCommon<T> {
@@ -53,17 +50,14 @@ export type OrderType = Order.desc | Order.asc;
 export interface CommonFilters {
   order?: OrderType;
   page?: number;
-  rowsPerPage?: number;
+  pageSize?: number;
   orderBy?: string | number | symbol;
 }
 
 export interface DialogI<T> {
   isOpen: boolean;
   toggle: () => void;
-  onSubmit?: (
-    values: T,
-    formikHelpers: FormikHelpers<T>
-  ) => void | Promise<any>;
+  onSubmit?: (values: T, formikHelpers: FormikHelpers<T>) => void | Promise<any>;
 }
 
 export interface RequestPagingCommon {
@@ -73,7 +67,9 @@ export interface RequestPagingCommon {
 }
 
 export interface ResponsePagingCommon<T> {
-  totalCount: number;
+  total?: number;
+  totalPage?: number;
+  pageSize?: number;
   items: T;
 }
 
@@ -89,9 +85,7 @@ export interface User {
   amr: string[];
 }
 
-export type SetOptionsValue = React.Dispatch<
-  React.SetStateAction<SelectOption[]>
->;
+export type SetOptionsValue = React.Dispatch<React.SetStateAction<SelectOption[]>>;
 export type SetBooleanState = React.Dispatch<React.SetStateAction<boolean>>;
 
 export interface TimeValue {

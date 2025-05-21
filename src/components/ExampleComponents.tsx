@@ -17,8 +17,16 @@ import Loading from "./ui/loading";
 import Link from "next/link";
 
 const ExampleComponents = () => {
-  const [openConfirm, toggleConfirm, shouldRenderConfirm] = useToggleDialog();
-  const [openExample, toggleExample, shouldRenderExample] = useToggleDialog();
+  const {
+    open: openConfirm,
+    toggle: toggleConfirm,
+    shouldRender: shouldRenderConfirm,
+  } = useToggleDialog();
+  const {
+    open: openExample,
+    toggle: toggleExample,
+    shouldRender: shouldRenderExample,
+  } = useToggleDialog();
 
   const { filters, setFilters } = useFiltersHandler({
     page: 1,
@@ -37,7 +45,7 @@ const ExampleComponents = () => {
 
     return (
       <div>
-        {(data || []).map((el) => {
+        {(data || []).map((el: any) => {
           return (
             <div key={el.id}>
               {el.id} - {el.title}

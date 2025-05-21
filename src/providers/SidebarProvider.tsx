@@ -1,36 +1,57 @@
 "use client";
-import { createContext, useCallback, useContext, useMemo, useState } from "react";
 
-interface SidebarContextI {
-  isOpen?: boolean;
-  toggle?: () => void;
+import {
+  createContext,
+  useContext,
+  useState,
+  Dispatch,
+  SetStateAction,
+  PropsWithChildren,
+} from "react";
+
+// Define the context type
+interface SidebarContextType {
+  sidebarOpen: boolean;
+  setSidebarOpen: Dispatch<SetStateAction<boolean>>;
+  mobileMenuOpen: boolean;
+  setMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
+  toggleSidebar: () => void;
+  toggleMobileMenu: () => void;
 }
 
-const SidebarContext = createContext<SidebarContextI>({
-  isOpen: false,
-  toggle: () => {},
+// Create the context with an initial value
+const SidebarContext = createContext<SidebarContextType>({
+  sidebarOpen: true,
+  setSidebarOpen: () => {},
+  mobileMenuOpen: false,
+  setMobileMenuOpen: () => {},
+  toggleSidebar: () => {},
+  toggleMobileMenu: () => {},
 });
 
-export const useSidebarHandler = () => useContext(SidebarContext);
+// Create the provider component
+export function SidebarProvider({ children }: PropsWithChildren) {
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
-const SidebarProvider = ({ children }: { children: any }) => {
-  //! State
-  const [isOpen, setOpen] = useState(false);
+  const toggleSidebar = () => setSidebarOpen((prev) => !prev);
+  const toggleMobileMenu = () => setMobileMenuOpen((prev) => !prev);
 
-  const toggle = useCallback(() => {
-    setOpen((prev) => !prev);
-  }, []);
+  // Value to be provided to consumers
+  const value: SidebarContextType = {
+    sidebarOpen,
+    setSidebarOpen,
+    mobileMenuOpen,
+    setMobileMenuOpen,
+    toggleSidebar,
+    toggleMobileMenu,
+  };
 
-  const value = useMemo(
-    () => ({
-      isOpen,
-      toggle,
-    }),
-    [isOpen, toggle]
-  );
-
-  //! Render
   return <SidebarContext.Provider value={value}>{children}</SidebarContext.Provider>;
-};
+}
 
-export default SidebarProvider;
+// Custom hook for using the sidebar context
+export function useSidebar(): SidebarContextType {
+  const context = useContext(SidebarContext);
+  return context;
+}
