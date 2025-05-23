@@ -10,7 +10,7 @@ import urls from "./constants/urls";
 
 const intlMiddleware = createMiddleware(routing);
 
-const protectedPages = [urls.Homepage, urls.Dashboard];
+const protectedPages = [urls.Homepage];
 
 const authPages = [urls.SignIn, urls.SignUp];
 
@@ -35,7 +35,7 @@ export default async function middleware(
 
   // If user logged in -> access sign-in / sign-up -> redirect to homepage
   if (isLogged && regexCheckIsAuthPage.test(path)) {
-    return NextResponse.redirect(new URL(urls.Dashboard, request.url));
+    return NextResponse.redirect(new URL(urls.Homepage, request.url));
   }
 
   // If user have not logged in yet -> access to protected page -> redirect to sign-in

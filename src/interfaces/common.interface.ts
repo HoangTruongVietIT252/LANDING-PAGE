@@ -100,3 +100,21 @@ export interface ImportResponse {
   rowUpdated?: number;
   success?: boolean;
 }
+
+interface SidebarSubItem {
+  title: string;
+  url: string;
+  badge?: string;
+}
+
+interface SidebarItem {
+  title: string;
+  icon: React.ReactElement;
+  isActive?: boolean;
+  badge?: string;
+  items?: SidebarSubItem[];
+}
+
+type SidebarItems = SidebarItem[];
+
+export type { SidebarItem, SidebarSubItem, SidebarItems };

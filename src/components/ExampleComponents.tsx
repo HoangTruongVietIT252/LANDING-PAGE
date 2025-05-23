@@ -7,14 +7,13 @@ import RadioField from "./CustomFieldsFormik/RadioField";
 import DateTimePickerField from "./CustomFieldsFormik/DateTimePickerField";
 import SwitchBoxField from "./CustomFieldsFormik/SwitchBoxField";
 import CheckBoxField from "./CustomFieldsFormik/CheckBoxField";
-import DialogConfirm from "./Dialogs/DialogConfirm";
-import DialogExample from "./Dialogs/DialogExample";
 import useToggleDialog from "@/hooks/useToggleDialog";
 import { useGetTodos } from "@/modules/todos";
 import useFiltersHandler from "@/hooks/useFiltersHandler";
 import { cloneDeep } from "lodash";
 import Loading from "./ui/loading";
 import Link from "next/link";
+import CommonStyles from "./CommonStyles";
 
 const ExampleComponents = () => {
   const {
@@ -162,26 +161,11 @@ const ExampleComponents = () => {
 
             <div className="dialogs-example flex flex-col gap-2">
               <p className="mb-2 text-2xl font-semibold">Dialogs</p>
-              {shouldRenderConfirm && (
-                <DialogConfirm
-                  isOpen={openConfirm}
-                  toggle={toggleConfirm}
-                  title="Confirmation"
-                  content="Are you sure you want do something?"
-                  onSubmit={(_, { setSubmitting }) => {
-                    setSubmitting(true);
-                    setTimeout(() => {
-                      toggleConfirm();
-                    }, 2000);
-                  }}
-                />
+
+              {shouldRenderExample && (
+                <CommonStyles.Dialog open={openExample} toggle={toggleExample} content={<></>} />
               )}
 
-              {shouldRenderExample && <DialogExample isOpen={openExample} toggle={toggleExample} />}
-
-              <div>
-                <Button onClick={toggleConfirm}>Open confirm dialog</Button>
-              </div>
               <div>
                 <Button onClick={toggleExample}>Open example dialog</Button>
               </div>
