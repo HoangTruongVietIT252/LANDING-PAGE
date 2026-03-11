@@ -12,7 +12,7 @@ const intlMiddleware = createMiddleware(routing);
 
 const protectedPages = [urls.Homepage];
 
-const authPages = [urls.SignIn, urls.SignUp];
+const authPages = [urls.LandingPage, urls.SignUp];
 
 export default async function middleware(
   request: NextRequest
@@ -40,7 +40,7 @@ export default async function middleware(
 
   // If user have not logged in yet -> access to protected page -> redirect to sign-in
   if (!isLogged && regexCheckIsProtectedPage.test(path)) {
-    return NextResponse.redirect(new URL(urls.SignIn, request.url));
+    return NextResponse.redirect(new URL(urls.LandingPage, request.url));
   }
 
   // Allow direct access to sitemap.xml and robots.txt without i18n middleware processing
