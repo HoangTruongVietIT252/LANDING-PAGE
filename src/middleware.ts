@@ -9,8 +9,8 @@ import urls from "./constants/urls";
 
 const intlMiddleware = createMiddleware(routing);
 
-const protectedPages = [urls.Homepage];
-const authPages = [urls.LandingPage, urls.SignUp];
+const protectedPages = [urls.Dashboard];
+const authPages = [urls.SignIn, urls.SignUp];
 
 function isEmptyObject(value: unknown): boolean {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
@@ -51,7 +51,7 @@ export default async function middleware(request: NextRequest) {
   }
 
   if (!isLogged && regexCheckIsProtectedPage.test(path)) {
-    return NextResponse.redirect(new URL(urls.LandingPage, request.url));
+    return NextResponse.redirect(new URL(urls.Homepage, request.url));
   }
 
   if (path === "/sitemap.xml" || path === "/robots.txt") {
