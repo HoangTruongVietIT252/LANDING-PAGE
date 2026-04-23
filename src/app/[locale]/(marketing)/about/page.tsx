@@ -10,27 +10,27 @@ import { MarketingFooter, MarketingHeader, SectionIntro } from "@/components/mar
 
 const beliefPillars = [
   {
-    title: "Thoughtful formulas first",
+    title: "Thoughtful by nature",
     description:
-      "We believe skincare should feel considered, supportive, and realistic for everyday life, not overloaded with noise or trend pressure.",
+      "We believe skincare should feel refined, reassuring, and beautifully uncomplicated, something that supports everyday skin instead of adding more noise.",
   },
   {
-    title: "Consistency over complication",
+    title: "Consistency creates radiance",
     description:
-      "Healthy-looking skin usually comes from calm routines followed consistently, not from chasing every launch or layering too much too fast.",
+      "The most beautiful results often come from quiet rituals followed with care, not from chasing every trend or overcomplicating the routine.",
   },
   {
-    title: "Confidence, not perfection",
+    title: "Confidence in your own skin",
     description:
-      "Our approach is centered on helping people feel more comfortable, informed, and at ease in their own skin.",
+      "Everything we create is meant to help skin feel comfortable, cared for, and naturally luminous, never covered up by pressure or perfectionism.",
   },
 ] as const;
 
 const standards = [
-  "Skincare guidance shaped around real concerns, not just marketing trends",
-  "A clean, calm experience that reduces overwhelm and supports better decisions",
-  "Product storytelling focused on fit, feel, and usefulness in daily routines",
-  "A trust-first tone designed to feel warm, polished, and easy to believe",
+  "A more thoughtful point of view on skincare, shaped around real concerns and real routines",
+  "A clean, elevated brand experience that feels calming from the first click",
+  "Product storytelling centered on texture, comfort, and everyday usefulness",
+  "A softer, more trustworthy tone that helps people feel guided instead of sold to",
 ] as const;
 
 export default function AboutPage() {
@@ -45,12 +45,11 @@ export default function AboutPage() {
               About Women Skin Lab
             </div>
             <h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
-              Skincare made to feel calmer, clearer, and easier to trust.
+              A softer, more thoughtful approach to beautiful skin.
             </h1>
             <p className="mt-5 max-w-2xl text-sm leading-7 text-[#6c5c52] md:text-lg md:leading-8">
-              Women Skin Lab is built around a simple idea, skincare should feel thoughtful and supportive,
-              not confusing or crowded. We believe better routines start with clarity, gentleness, and a more honest
-              sense of what actually helps.
+              Women Skin Lab was created with the belief that skincare should feel calm, elevated, and easy to trust.
+              We are drawn to formulas, routines, and rituals that bring comfort, clarity, and a quiet sense of confidence to everyday skin.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -92,18 +91,17 @@ export default function AboutPage() {
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
           <SectionIntro
             eyebrow="Our story"
-            title="We wanted skincare to feel less overwhelming and more intentional."
-            description="Women Skin Lab was shaped as a softer, more trustworthy brand space, one that values routine clarity, product quality, and the quiet confidence that comes from healthy-looking skin."
+            title="We wanted skincare to feel more intimate, more intentional, and more beautifully clear."
+            description="Women Skin Lab was shaped as a softer kind of skincare brand, one that values refined simplicity, thoughtful choices, and the quiet confidence that comes with healthy-looking skin."
           />
           <div className="rounded-[2rem] border border-[#eadfd7] bg-white p-8 md:p-10">
             <p className="text-sm leading-8 text-[#5f5148] md:text-base">
-              Instead of treating skincare like a fast-moving stream of trends, we focus on what feels sustainable,
-              clear, and supportive in real life. That means simpler routines, more thoughtful recommendations,
-              and a brand experience designed to reduce hesitation instead of adding more noise.
+              In a category that can often feel crowded and overstated, we are drawn to what feels calm, purposeful, and enduring.
+              That means simpler routines, more thoughtful recommendations, and a brand experience designed to feel reassuring from the very beginning.
             </p>
             <p className="mt-5 text-sm leading-8 text-[#5f5148] md:text-base">
-              Our philosophy is rooted in the belief that skincare should help people feel informed and cared for,
-              whether they are dealing with dryness, sensitivity, dullness, or just trying to build a routine that finally makes sense.
+              Our philosophy is rooted in the idea that skincare should help people feel cared for, informed, and quietly confident,
+              whether they are navigating dryness, sensitivity, dullness, or simply searching for a routine that feels right at last.
             </p>
           </div>
         </div>
@@ -113,8 +111,8 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-20">
           <SectionIntro
             eyebrow="What we believe"
-            title="A good skincare brand should feel clear, steady, and grounded in real use."
-            description="These principles shape how Women Skin Lab speaks, curates, and supports people throughout the journey."
+            title="A beautiful skincare experience should feel calm, considered, and deeply wearable."
+            description="These ideas shape the way Women Skin Lab curates, communicates, and supports people throughout the journey."
           />
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {beliefPillars.map((item, index) => (
@@ -152,8 +150,8 @@ export default function AboutPage() {
           <div className="flex flex-col justify-center">
             <SectionIntro
               eyebrow="Our standards"
-              title="What makes the experience feel different"
-              description="We are interested in quality, clarity, and a more useful kind of guidance, the kind that helps people make better decisions with less friction."
+              title="What gives the experience its signature feel"
+              description="We care about quality, restraint, and a more graceful kind of guidance, the kind that helps people choose with confidence and ease."
             />
             <div className="mt-8 grid gap-4">
               {standards.map((item, index) => (
@@ -182,11 +180,11 @@ export default function AboutPage() {
                 Keep exploring
               </p>
               <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight md:text-5xl">
-                Continue with the pages that build trust the fastest.
+                Continue into the pages that bring the brand to life.
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-[#ecd9cd] md:text-base">
-                If you want to understand the brand better, see how customers respond, or browse the broader skincare direction,
-                these are the natural next steps.
+                If you would like to see how customers respond, explore the wider skincare direction, or spend more time with the brand,
+                these are the most natural next steps.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
@@ -194,13 +192,13 @@ export default function AboutPage() {
                 href="/reviews"
                 className="inline-flex h-12 items-center justify-center rounded-full bg-[#fff8f3] px-6 text-sm font-medium text-[#241915] transition hover:bg-[#f2e2d7]"
               >
-                Read reviews
+                Explore reviews
               </Link>
               <Link
                 href="/"
                 className="inline-flex h-12 items-center justify-center rounded-full border border-white/20 bg-transparent px-6 text-sm font-medium text-[#fff8f3] transition hover:bg-white/10"
               >
-                Go to home
+                Return home
               </Link>
             </div>
           </div>

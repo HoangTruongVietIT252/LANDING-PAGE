@@ -75,8 +75,8 @@ export default function PrivacyPolicyPage() {
         <div className="mx-auto max-w-5xl px-4 py-16 md:px-8 md:py-24">
           <SectionIntro
             eyebrow="Privacy Policy"
-            title="How Women Skin Lab collects, uses, and protects information."
-            description="This Privacy Policy explains the basic ways information may be collected and used when you interact with our website and support channels."
+            title="How Women Skin Lab collects, uses, and protects your information."
+            description="This Privacy Policy explains the ways information may be collected and used when you visit our website or get in touch with us through our support channels."
             align="center"
           />
           <p className="mt-6 text-center text-sm font-medium text-[#7b665a]">Last updated: April 23, 2026</p>
@@ -87,10 +87,9 @@ export default function PrivacyPolicyPage() {
         <Card className="rounded-[2rem] border-[#eadfd7] bg-white shadow-none">
           <CardContent className="p-6 md:p-10">
             <p className="text-sm leading-8 text-[#5f5148] md:text-base">
-              This Privacy Policy applies to information collected through the Women Skin Lab website,
-              including when you browse our pages, submit a contact request, or otherwise interact with us online.
-              It is intended as a practical privacy notice for the current marketing-site scope and may be updated as our tools,
-              features, or services evolve.
+              This Privacy Policy applies to information collected through the Women Skin Lab website, including when you browse our pages,
+              submit a contact request, or otherwise interact with us online. It is intended as a clear and practical privacy notice for the current scope of the site,
+              and it may be updated over time as our services, features, or tools evolve.
             </p>
 
             <div className="mt-10 grid gap-6">
