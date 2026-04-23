@@ -2,6 +2,8 @@ export const marketingNav = [
   { label: "Home", href: "/" },
   { label: "Blog", href: "/blog" },
   { label: "Reviews", href: "/reviews" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const concernCards = [

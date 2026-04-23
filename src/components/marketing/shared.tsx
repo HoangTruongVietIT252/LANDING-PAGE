@@ -79,10 +79,10 @@ export function MarketingHeader() {
 
         <div className="hidden md:block">
           <Link
-            href="/reviews"
+            href="/contact"
             className="inline-flex h-10 items-center justify-center rounded-full bg-[#241915] px-6 text-sm font-medium text-[#fff8f3] transition hover:bg-[#3a2b24]"
           >
-            See our review approach
+            Contact us
           </Link>
         </div>
 
@@ -114,11 +114,11 @@ export function MarketingHeader() {
               </Link>
             ))}
             <Link
-              href="/reviews"
+              href="/contact"
               className="mt-2 inline-flex h-11 items-center justify-center rounded-full bg-[#241915] text-sm font-medium text-[#fff8f3] transition hover:bg-[#3a2b24]"
               onClick={() => setOpen(false)}
             >
-              See our review approach
+              Contact us
             </Link>
           </div>
         </div>
@@ -136,8 +136,8 @@ export function MarketingFooter() {
             Women Skin Lab
           </p>
           <p className="mt-4 max-w-xl text-sm leading-7 text-[#6c5c52]">
-            A calm, trust-first skincare concept inspired by the competitor structure, then rebuilt
-            with clearer hierarchy, stronger proof, and a more useful user journey.
+            A calm, trust-first skincare destination built around thoughtful routines, supportive guidance,
+            and a softer brand experience for everyday skin concerns.
           </p>
         </div>
         <div className="grid gap-8 sm:grid-cols-2">
@@ -154,7 +154,12 @@ export function MarketingFooter() {
           <div>
             <p className="text-sm font-semibold text-[#241915]">Contact</p>
             <div className="mt-4 flex flex-col gap-3 text-sm text-[#6c5c52]">
-              <span>tvhoangit252@gmail.com</span>
+              <Link href="/contact" className="transition hover:text-[#241915]">
+                support@womenskinlabstore.com
+              </Link>
+              <Link href="/privacy-policy" className="transition hover:text-[#241915]">
+                Privacy Policy
+              </Link>
               <span>Honest skincare notes, routines, and review-led guidance.</span>
             </div>
           </div>
